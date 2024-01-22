@@ -1,6 +1,7 @@
 import OpenAI from "openai";
 import readlineSync from "readline-sync";
 import colors from "colors";
+import * as emoji from "node-emoji";
 import { config } from "dotenv";
 
 config();
@@ -10,6 +11,11 @@ const openai = new OpenAI({
 });
 
 async function main() {
+  console.log(
+    colors.italic.cyan(
+      "Welcome to our chatbot! \nYou can start the program!"
+    ) + emoji.emojify(":heart:")
+  );
   while (true) {
     const userInput = readlineSync.question(colors.yellow("You: "));
     try {
